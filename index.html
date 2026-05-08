@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ai-native — index</title>
+<meta name="description" content="Personal services running on ai-native.japaneast.cloudapp.azure.com.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fafafa;
+    --fg: #171717;
+    --fg-dim: #525252;
+    --fg-faint: #737373;
+    --border: #e5e5e5;
+    --hover: #f5f5f5;
+    --accent: #2563eb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0a0a0a;
+      --fg: #ededed;
+      --fg-dim: #a3a3a3;
+      --fg-faint: #737373;
+      --border: #262626;
+      --hover: #171717;
+      --accent: #60a5fa;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+  header {
+    margin-bottom: 48px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+  .subtitle {
+    color: var(--fg-dim);
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .subtitle code {
+    font-size: 13px;
+    background: var(--hover);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+  .item {
+    display: block;
+    padding: 18px 4px;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.1s ease;
+  }
+  .item:hover {
+    background: var(--hover);
+  }
+  .item-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .name {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .path {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    color: var(--accent);
+  }
+  .auth {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--fg-faint);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+  .desc {
+    margin: 6px 0 0;
+    color: var(--fg-dim);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  footer {
+    margin-top: 64px;
+    color: var(--fg-faint);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  footer a {
+    color: var(--fg-dim);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>ai-native</h1>
+    <p class="subtitle">
+      Personal services on <code>ai-native.japaneast.cloudapp.azure.com</code>.
+      Everything below runs on a single Azure VM behind one Nginx.
+    </p>
+  </header>
+
+  <nav class="grid">
+    <a class="item" href="/myblog/">
+      <div class="item-row">
+        <span class="name">Blog</span>
+        <span class="path">/myblog</span>
+      </div>
+      <p class="desc">Hexo static site. Notes on what's running here, deployment write-ups.</p>
+    </a>
+
+    <a class="item" href="/feed/">
+      <div class="item-row">
+        <span class="name">ai-feed</span>
+        <span class="path">/feed</span>
+      </div>
+      <p class="desc">Daily AI-frontier digest. A Claude-Code agent aggregates ~10 sources twice a day and writes an opinionated synthesis. Public read; AI-explain needs sign-in.</p>
+    </a>
+
+    <a class="item" href="/chat/">
+      <div class="item-row">
+        <span class="name">ai-playground</span>
+        <span class="path">/chat</span>
+        <span class="auth">sign-in</span>
+      </div>
+      <p class="desc">Private chat UI against Azure AI Foundry models (Llama 3.3, etc.). GitHub OAuth, allowlist.</p>
+    </a>
+
+    <a class="item" href="/vpn/">
+      <div class="item-row">
+        <span class="name">vpn-monitor</span>
+        <span class="path">/vpn</span>
+        <span class="auth">sign-in</span>
+      </div>
+      <p class="desc">Hysteria2 VPN dashboard — active connections, cumulative traffic, geo-resolved connection log.</p>
+    </a>
+
+    <a class="item" href="/traffic/">
+      <div class="item-row">
+        <span class="name">Traffic report</span>
+        <span class="path">/traffic</span>
+      </div>
+      <p class="desc">GoAccess HTML report parsing the Nginx access log. Refreshes every 5 min.</p>
+    </a>
+
+    <a class="item" href="/status">
+      <div class="item-row">
+        <span class="name">status</span>
+        <span class="path">/status</span>
+      </div>
+      <p class="desc">Feature-health dashboard. Application-level checks (digest freshness, VPN pipeline, cert expiry, disk pressure). Companion to external UptimeRobot.</p>
+    </a>
+
+    <a class="item" href="/cost">
+      <div class="item-row">
+        <span class="name">cost</span>
+        <span class="path">/cost</span>
+      </div>
+      <p class="desc">AI spend tracker. Logs every Claude Code agent run and every Foundry call to Postgres, aggregates by day / service / model.</p>
+    </a>
+
+    <a class="item" href="/stock">
+      <div class="item-row">
+        <span class="name">stock</span>
+        <span class="path">/stock</span>
+      </div>
+      <p class="desc">MSFT analysis dashboard. Daily LLM-driven outlook (bullish/neutral/bearish + drivers + risks) over a 90-day price timeline. Decision support, not advice.</p>
+    </a>
+
+    <a class="item" href="/umami/">
+      <div class="item-row">
+        <span class="name">Umami</span>
+        <span class="path">/umami</span>
+        <span class="auth">sign-in</span>
+      </div>
+      <p class="desc">JS-snippet pageview analytics. Self-hosted Umami v2, rebuilt with BASE_PATH baked in.</p>
+    </a>
+  </nav>
+
+  <footer>
+    <p>
+      Single Azure VM (Japan East, B2s). Nginx + Let's Encrypt + 5 docker services.
+      Source for most of these lives at
+      <a href="https://github.com/WhatsFish">github.com/WhatsFish</a>.
+    </p>
+  </footer>
+</main>
+</body>
+</html>
